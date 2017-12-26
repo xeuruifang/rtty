@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.img {
+				width: 400px;
+				height: 400px;
+				margin: 100px auto;
+				background: url(img/img/logo.png) repeat;
+				background-size: 100% 100%;
+			}
+			.button{
+				width: 100px;
+				height: 100px;
+				background: skyblue;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="img"></div>
+		<div class="button"></div>
+		<script>
+			var img = document.querySelector('.img');
+			var oButton = document.querySelector('.button');
+			console.log(img);
+			var num = 0;
+			setInterval(function() {
+				hide();
+			}, 20);
+
+			function hide() {
+				img.style.backgroundPositionY = -num + 'px';
+				num--
+			}
+		</script>
+	</body>
+
+</html>

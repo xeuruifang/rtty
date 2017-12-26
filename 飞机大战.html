@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#wrap {
+				margin: 0px auto;
+				width: 320px;
+				height: 550px;
+			}
+			
+			#action,
+			.fly {
+				position: absolute;
+				top: 0;
+				width: 320px;
+				height: 550px;
+				background-image: url(img/开始背景.png);
+				background-size: 100%;
+			}
+			
+			.fly {
+				display: none;
+				background-image: url(img/enemy1_fly_1.png);
+				position: relative;
+			}
+			
+			.fly .myself {
+				position: absolute;
+				width: 66px;
+				height: 80px;
+			}
+			
+			#action button {
+				position: absolute;
+				left: 50%;
+				margin-left: -70px;
+				margin-top: 450px;
+				width: 150px;
+				height: 50px;
+				outline: none;
+				border: none;
+				font-size: 16px;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="action">
+				<button>开始</button>
+			</div>
+			<div class="fly">
+				<div class="myself">
+					<img src="image/我的飞机.gif" />
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+<script>
+	var btn = document.querySelector("button"),
+		btm = document.querySelector(".fly"),
+		xrf = document.querySelector(".myself"),
+		num = 0;
+
+	btn.onclick = function() {
+		btm.style.display = "block";
+	}
+
+	function lanFn() {
+		btm.style.backgroundPositionY = -num + "px"
+		num--
+	}
+	setInterval(function() {
+		lanFn()
+	}, 10)
+	btm.onmouseover = function(ev) {
+		var oEv = ev || event
+		var mx = btm.offsetWidth - myself.offsetWidth,
+			my = btm.offsetHeight - myself.offsetHeight;
+		document.onmousemove = function(e) {
+			var oEv = e || event;
+			var x = oEv.clientX - btm.offsetLeft - myself.offsetWidth / 2,
+				y = oEv.clientY - btm.offsetTop - myself.offsetHeight / 2;
+
+			x <= 0 ? x = 0 : x;
+			y <= 0 ? y = 0 : y;
+			x >= mx ? x = mx : x;
+			y >= my ? y = my : y;
+
+			myself.style.left = x + 'px';
+			myself.style.action = y + 'px';
+		}
+		btm.onmouseout = function() {
+			document.onmousemove = ''
+		}
+
+	}
+</script>

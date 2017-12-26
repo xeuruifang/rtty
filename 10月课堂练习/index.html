@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width: 280px;
+				height: 250px;
+				position: relative;
+				background: pink;
+				margin: 200px auto;
+				overflow: hidden;
+			}
+			.content{
+				position: absolute;
+				
+				top: -50px;
+				width: 280px;
+				height: 30px;
+				background: rgba(0,0,0,.5);
+				transition: 1s;
+			}
+			.wrap:hover .content{
+				top: 0;
+			}
+			.xue{
+				position: absolute;
+				background: red;
+				transition: 1s 0.3s;
+			}
+			.left{
+				top:-250px;
+				left: 0;
+				height: 250px;
+				width: 2px;
+			}
+			.bottom{
+				width: 280px;
+				height: 2px;
+				left: -280px;
+				bottom: 0;
+			}
+			.right{
+				bottom: -250px;
+				width: 2px;
+				height: 250px;
+				right: 0;
+			}
+			.top{
+				right: -280px;
+				width: 280px;
+				height: 2px;
+				top: 0;
+			}
+			.wrap:hover .left{
+				top: 0;
+			}
+			.wrap:hover .bottom{
+				left: 0;
+			}
+			.wrap:hover .right{
+				bottom: 0;
+			}
+			.wrap:hover .top{
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="content"></div>
+			<div class="left xue"></div>
+			<div class="right xue"></div>
+			<div class="top xue"></div>
+			<div class="bottom xue"></div>
+		</div>
+	</body>
+</html>

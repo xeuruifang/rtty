@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		.box{
+			width: 400px;
+			height:600px;
+			margin: 50px auto 0;
+			background-image:url(10月课堂练习/人人车/img/story.png);
+			background-size: 100% 100%;
+			text-align: center;
+			position: relative;
+		}
+		.lan{
+			position: absolute;
+			left: 50px;
+			top: 300px;
+		}
+		.lanf{
+			position: absolute;
+			left: 50px;
+			top: 310px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box">
+		<div class="lan">
+			<img src="you/img/img4.gif"/ id="img">
+		</div>
+		<div class="lanf">
+			<img src="image/0.gif" alt="" id="imgf">
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		var lanImg = document.querySelector('img')
+		var lanImgf = document.querySelector('#imgf')
+		var oBox = document.querySelector('.box')
+		var lanBox = document.querySelector('.lan')
+		var lanBoxf = document.querySelector('.lanf')
+		var lan = 0;
+		setInterval(function(){
+			lanImg.src = "image/" + (lan%3) + ".gif"
+			lan++;
+		},100)	
+		setInterval(function(){
+			lanImgf.src = "image/" + (lan%3) + ".gif"
+			lan++;
+		},100)	
+		var num=0;
+		function lanFn(){
+			oBox.style.backgroundPositionX=num+"px"
+			num--
+		}
+		setInterval(function(){
+			lanFn()
+		},10)	
+		document.onkeydown=function(ev){
+			var ev=ev||event
+			if(ev.keyCode==65){
+				lanBox.style.left=lanBox.offsetLeft-10+"px"
+			}
+			if(ev.keyCode==68){
+				lanBox.style.left=lanBox.offsetLeft+10+"px"
+			}
+			if(ev.keyCode==87){
+				lanBox.style.top=lanBox.offsetTop-10+"px"
+			}
+			if(ev.keyCode==83){
+				lanBox.style.top=lanBox.offsetTop+10+"px"
+			}
+			if(ev.keyCode==37){
+				lanBoxf.style.left=lanBoxf.offsetLeft-10+"px"
+			}
+			if(ev.keyCode==39){
+				lanBoxf.style.left=lanBoxf.offsetLeft+10+"px"
+			}
+			if(ev.keyCode==38){
+				lanBoxf.style.top=lanBoxf.offsetTop-10+"px"
+			}
+			if(ev.keyCode==40){
+				lanBoxf.style.top=lanBoxf.offsetTop+10+"px"
+			}
+			
+		}
+	</script>
+</body>
+</html>

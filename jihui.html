@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.wrap {
+				width: 400px;
+				height: 300px;
+				margin: 0 auto;
+				background: #ccc;
+				text-align: center;
+			}
+			
+			input {
+				outline: none;
+				width: 200px;
+				height: 40px;
+				margin-top: 60px;
+			}
+			
+			h3 {
+				width: 200px;
+				height: 40px;
+				background-color: #000;
+				margin: 30px auto 0;
+				border: 1px solid #000;
+				color: #fff;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<input type="text" />
+			<h3>请输入您的答案</h3>
+		</div>
+		<script type="text/javascript">
+			var Inp = document.querySelector('input');
+			var h3 = document.querySelector('h3');
+			var xrf = parseInt(Math.random() * 10);
+			var Vel = Inp.value;
+			console.log(xrf)
+			var x = 3;
+			Inp.onfocus = function() {
+				h3.innerHTML = '请输入您的答案';
+				h3.style.backgroundColor = 'black';
+			}
+			Inp.onblur = function() {
+				Vel = Inp.value;
+				if(Vel == '') {
+					h3.innerHTML = '请输入您的答案';
+					h3.style.backgroundColor = 'black';
+				} else if(Vel == xrf) {
+					h3.innerHTML = '恭喜您获得了胜利';
+					h3.style.backgroundColor = 'orange';
+				} else if(Vel != xrf) {
+					x--;
+					h3.innerHTML = '您还有' + x + '次机会';
+					h3.style.backgroundColor = 'red';
+					if(x == 0) {
+						x = 0;
+						Inp.disabled = 'disabled';
+						h3.innerHTML = 'Game over!';
+						h3.style.backgroundColor = 'red';
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>
